@@ -16,6 +16,10 @@ app.get('/process_get', function (req, res) {
    res.end(JSON.stringify(response));
 })
 
+app.get('/process_get/:first_name/process_get/:last_name', (req, res) => {
+   res.send(req.params)
+ })
+
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
