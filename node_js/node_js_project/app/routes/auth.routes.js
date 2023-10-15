@@ -22,4 +22,28 @@ module.exports = function(app) {
   app.post("/api/auth/signin", controller.signin);
 
   app.post("/api/auth/signout", controller.signout);
+
+  let post = [];
+
+  app.post('/api/post', (req, res) => {
+    const new_post = req.body;
+    post.push(new_post);
+    res.status(201).json(new_post);
+  });
+
+  app.get('/api/get', (req, res) => {
+    res.json(post);
+  });
+
+  app.put('/api/edit/:id', (req, res) => {
+    const new_post = req.body;
+    post.push(new_post);
+    res.status(201).json(new_post);
+  });
+
+  app.delete('/api/delete/:id', (req, res) => {
+    const new_post = req.body;
+    post.pop(new_post);
+    res.status(201).json(new_post);
+  });
 };
