@@ -35,6 +35,10 @@ module.exports = function(app) {
     res.json(post);
   });
 
+  app.get('/api/auth/signin?id=', (req, res) => {
+    res.json(post);
+  });
+
   app.put('/api/edit/:id', (req, res) => {
     const new_post = req.body;
     post.push(new_post);
